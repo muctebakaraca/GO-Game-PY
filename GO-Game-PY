@@ -1,0 +1,41 @@
+board = [[' ', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+         ['1', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['2', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['3', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['4', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['5', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['6', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['7', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['8', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+         ['9', '.', '.', '.', '.', '.', '.', '.', '.', '.']]
+turn = 2
+play = "play"
+player = 1
+print("RULES:")
+print("Black goes first")
+print("You may not place a token where one is already occupying the space.")
+print("Your goal is to surround your opponent's pieces with your own.")
+for x in (board):
+  for y in x:
+    print(y, end=" ")
+  print()
+while play == "play":
+  if turn % 2 == 0:
+    player = chr(9675)
+    print("Black's turn.")
+  else:
+    player = chr(9679)
+    print("White's turn.")
+  turn += 1
+  placed = False
+  while placed == False:
+    coordinateY = int(input("enter the X coordinate. 1-9 "))
+    coordinateX = int(input("enter the Y coordinate. 1-9 "))
+    if board[coordinateX][coordinateY] == '.':
+      board[coordinateX][coordinateY] = player
+      placed = True
+  for x in (board):
+    for y in x:
+      print(y, end=" ")
+    print()
+  play = (input("play/stop ")).lower()
